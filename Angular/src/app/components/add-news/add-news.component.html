@@ -1,0 +1,48 @@
+<div class="">
+    <app-header></app-header>
+    <div class="row">
+      <div class="col-sm-2" >
+        <app-sidebar></app-sidebar>
+      </div>
+      <div class="col-sm-10">
+        <div class="content" role="main">
+          <div class=" card highlight-card card-small">
+         
+          <!-- Form-->
+          <div class="container box" style="font-family: BYek;">
+            <div class="table-responsive">
+                <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+                    <h4 style="margin: 15px;font-family: BYek; background-color: coral;">ثبت خبر جدید</h4>
+                    <label>عنوان خبر</label>
+                    <input type="text" name="newsTitle" id="newsTitle" [(ngModel)]="newsTitle" class="form-control" placeholder="ثبت خبر جدید">
+                    <label>متن خبر</label>
+                    <ckeditor name="editorData" id="editorData" [(ngModel)]="newsText" class="form-control" placeholder="متن خبر را وارد کنید"></ckeditor>
+                    <label>موضوع خبر</label>
+                    <!-- <input type="text" name="newsCategory" id="newsCategory" [(ngModel)]="newsCategory" class="form-control" placeholder="موضوع خبر"> -->
+                    <select name="newsCategory" [(ngModel)]="newsCategory" class="form-control">
+                      <option value="1">سیاسی</option>
+                      <option value="2">اقتصادی</option>
+                      <option value="3">ورزشی</option>
+                      <option value="4">اجتماعی</option>
+                    </select>
+                    <label>تاریخ خبر</label>{{todayJalali}}
+                    <input type="hidden" name="newsDate" id="newsDate" [(ngModel)]="newsDate" class="form-control" >
+                    
+                    <div>
+                        <button type="submit" class="btn btn-success">ذخیره اطلاعات</button>
+                        <button type="reset" class="btn btn-danger" value="تلاش مجدد">تلاش مجدد</button>
+                    </div>
+                    <span *ngIf="invalidValue" style="color: red; background-color: aquamarine;">عنوان خبر یا متن خبر خالی است</span>
+                </form>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  
+  
+  
+  
